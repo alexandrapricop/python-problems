@@ -12,3 +12,10 @@ class Solution:
                     return last_length
         
         return last_length
+    
+
+# Another solution, better runtime, worse memory
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.split()[-1])
