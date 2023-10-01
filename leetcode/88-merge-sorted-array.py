@@ -10,4 +10,29 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        
+        j = n - 1 #nums2
+        i = m - 1 #nums1
+        k = m + n - 1
+
+        # Fill the nums1 from behind by putting the biggest item on the last position
+        while j >=0 and i>=0:
+            if nums2[j] > nums1[i]:
+                nums1[k] = nums2[j]
+                j -= 1
+            else:
+                nums1[k] = nums1[i]     
+                i -= 1
+            k -= 1
+
+        k = k+1
+
+        # If elements remained in nums2, add them at the begining of nums1
+        if j >= 0:
+            if k==0:
+                nums1[0] = nums2[0]
+            else:
+                for i in range(k):
+                    nums1[i] = nums2[i]
+                    j -= 1
+
+
